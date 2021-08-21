@@ -1,0 +1,31 @@
+.flat-list {
+  padding: 0;
+  margin: 0 0 56px 0;
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  color: @main-color;
+}
+
+.flat-list__item {
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover .flat-list__link {
+    color: @alternative-color;
+    text-decoration: underline;
+  }
+}
+
+.flat-list__item--current .flat-list__link{
+  color: @alternative-color;
+  text-decoration: underline;
+}
+
+.flat-list__link {
+  color: inherit;
+  text-decoration: none;
+}

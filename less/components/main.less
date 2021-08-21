@@ -1,0 +1,33 @@
+.main {
+  max-width: @max-width-desktop;
+  margin: 0 auto;
+  padding-top: 54px;
+  display: flex;
+}
+
+.main__info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 67px 0;
+}
+
+.main__title {
+  margin: 0;
+}
+
+.main__image path {
+  opacity: 0;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.current-floor {
+    opacity: 1;
+  }
+}
