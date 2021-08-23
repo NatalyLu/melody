@@ -8,6 +8,7 @@ const csso = require("postcss-csso");
 const rename = require("gulp-rename");
 const sync = require("browser-sync").create();
 const htmlmin = require("gulp-htmlmin");
+const terser = require("gulp-terser-js");
 const del= require("del");
 
 // HTML
@@ -34,6 +35,23 @@ const styles = () => {
 };
 exports.styles = styles;
 
+// Scripts
+const scripts = () => {
+  return gulp.src("js/main.js")
+    .pipe(terser({
+      mangle: {
+        toplevel: true
+      }
+    }))
+    .on('error', function (error) {
+      this.emit('end')
+    })
+    .pipe(rename("script.min.js"))
+    .pipe(gulp.dest("build/js"))
+    .pipe(sync.stream());
+}
+exports.scripts = scripts;
+
 // Clean
 const clean = () => {
   return del("build");
@@ -42,10 +60,13 @@ exports.clean = clean;
 
 // Copy
 const copy = (done) => {
-  gulp.src("img/*.{jpg,png}", {
-    base: ""
+  gulp.src([
+    "fonts/*.{woff,woff2}",
+    "img/*.{svg,png}"
+  ], {
+    base: "./"
   })
-  .pipe(gulp.dest("build/img"))
+  .pipe(gulp.dest("build"))
   done();
 };
 exports.copy = copy;
@@ -82,6 +103,7 @@ const build = gulp.series(
     copy,
     gulp.parallel(
       styles,
+      scripts,
       html,
     ),
 );
@@ -93,6 +115,7 @@ exports.default = gulp.series(
   copy,
   gulp.parallel(
     styles,
+    scripts,
     html
   ),
   gulp.series(
