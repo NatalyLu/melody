@@ -1,0 +1,40 @@
+{
+  "name": "home-example",
+  "version": "1.0.0",
+  "description": "work on an interesting interactive solution",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.27.5",
+    "del": "^6.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-less": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser-js": "^5.2.2",
+    "postcss": "^8.3.6",
+    "postcss-csso": "^5.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp",
+    "styles": "gulp styles",
+    "stylelint": "stylelint \"less/**/*.less\" --syntax less",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatalyLu/home.git"
+  },
+  "author": "Lukashina Natalia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NatalyLu/home/issues"
+  },
+  "homepage": "https://github.com/NatalyLu/home#readme"
+}
